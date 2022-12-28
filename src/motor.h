@@ -14,7 +14,8 @@ class Motor
         Motor(int pwm_pin,int pos_dir_pin,int neg_dir_pin);
         void command(float cmd_speed);
         int _pwm_pin;
-        
+        int _pos_dir_pin ;
+        int _neg_dir_pin ;
 };
 
 

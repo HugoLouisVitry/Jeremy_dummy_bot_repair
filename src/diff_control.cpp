@@ -1,6 +1,6 @@
 
 #include "diff_control.h"
-#include "config.h"
+
 
 Controll::Controll(Motor mot_A, Motor mot_B)
 {

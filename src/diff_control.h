@@ -1,6 +1,6 @@
 #ifndef DIFF_CONTROL_H
 #define DIFF_CONTROL_H
-
+#include "config.h"
 #include "motor.h"
 
 class Controll
