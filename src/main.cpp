@@ -1,10 +1,14 @@
 
-#include "config.h"
-#include "diff_control.h"
+#include <Arduino.h>
 #include "motor.h"
+#include "diff_control.h"
 
-
-
+int motorA_PWM      = 3 ;
+int motorB_PWM      = 9 ;
+int motorA_dir_pos  = 11;
+int motorB_dir_pos  = 5 ;
+int motorA_dir_neg  = 10;
+int motorB_dir_neg  = 6 ;
 
 Motor motor_A(motorA_PWM,motorA_dir_pos,motorA_dir_neg);
 Motor motor_B(motorB_PWM,motorB_dir_pos,motorB_dir_neg);

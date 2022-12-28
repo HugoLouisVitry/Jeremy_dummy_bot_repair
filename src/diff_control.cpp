@@ -16,7 +16,7 @@ void Controll::move(float cmd_move_speed) // les moteurs tournent dans le même 
 
 }
 
-void Controll::rotate(float cmd_rot_speed) // les moteurs tournent en ses opposé
+void Controll::rotate(float cmd_rot_speed) // les moteurs tournent en sens opposé
 {
     _pwm_rot_value = cmd_rot_speed; // conversion
     analogWrite(_mot_A_pin,_pwm_rot_value);
