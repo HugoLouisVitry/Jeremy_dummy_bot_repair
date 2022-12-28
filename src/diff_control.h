@@ -1,7 +1,11 @@
 #ifndef DIFF_CONTROL_H
 #define DIFF_CONTROL_H
-#include "config.h"
+
 #include "motor.h"
+
+#define ZERO_SPEED 0
+#define NOMINAL_MOVE_SPEED 100
+#define NOMINAL_ROTATION_SPEED 30
 
 class Controll
 {
