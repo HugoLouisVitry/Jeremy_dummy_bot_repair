@@ -3,22 +3,24 @@
 #include "motor.h"
 #include "diff_control.h"
 
-int motorA_PWM      = 3 ;
-int motorB_PWM      = 5;
-int motorA_dir_pos  = 11;
-int motorB_dir_pos  = 8 ;
-int motorA_dir_neg  = 10;
-int motorB_dir_neg  = 6 ;
+int motorLeft_dir_pos  = 10;
+int motorLeft_dir_neg  = 11;
 
-Motor motor_A(motorA_PWM,motorA_dir_pos,motorA_dir_neg);
-Motor motor_B(motorB_PWM,motorB_dir_pos,motorB_dir_neg);
 
-Controll controller(motor_A,motor_B);
+int motorRight_dir_pos  = 8 ;
+int motorRight_dir_neg  = 6 ;
+
+Motor motor_Left(motorLeft_dir_pos,motorLeft_dir_neg);
+Motor motor_Right(motorRight_dir_pos,motorRight_dir_neg);
+
+Controll controller(motor_Left,motor_Right);
 
 void setup()
 {
     Serial.begin(9600);
-    pinMode(13,OUTPUT);    
+    pinMode(3,OUTPUT);
+
+
 
 }
 
@@ -28,18 +30,16 @@ void loop()
 
     if(-1!=cmd)
     {
-        //Serial.print("Received order :");
-        Serial.println(cmd);
-        digitalWrite(13,HIGH);
-        if('F' == cmd ){controller.move(NOMINAL_MOVE_SPEED);}
-        else if('B' == cmd ){controller.move(-NOMINAL_MOVE_SPEED);}
-        else if('L' == cmd ){controller.rotate(NOMINAL_ROTATION_SPEED);}
-        else if('R' == cmd ){controller.rotate(-NOMINAL_ROTATION_SPEED);}
+        
+        //Serial.println(cmd);
+        if(cmd == 'F' ){controller.move(1,FWD);}
+        else if('B' == cmd ){controller.move(1,!FWD);}
+        else if('L' == cmd ){controller.rotate(1,TRIGO);}
+        else if('R' == cmd ){controller.rotate(1,!TRIGO);}
         else if('S' == cmd ){controller.stop();}
-        //Serial.println("Executed");
 
     }
-    else {controller.stop();}
+
     
 }
 

@@ -4,22 +4,23 @@
 #include "motor.h"
 
 #define ZERO_SPEED 0
-#define NOMINAL_MOVE_SPEED 100
-#define NOMINAL_ROTATION_SPEED 30
+#define FWD 1
+#define TRIGO 1
+
 
 class Controll
 {
     public:
-        Controll(Motor mot_A, Motor mot_B);
-        void move(float cmd_move_speed);
-        void rotate(float cmd_rot_speed);
+        Controll(Motor mot_Left, Motor motor_Right);
+        void move(float cmd_move_speed,bool fwd); // dir = True for forward ! backward
+        void rotate(float cmd_rot_speed,bool trigo); // // dir = True for  ! 
         void stop();
     
     private:
-        float _pwm_rot_value;
-        float _pwm_move_value;
-        int _mot_A_pin;
-        int _mot_B_pin;
+        Motor _Mot_Left;
+        Motor _Mot_Right;
+        
+
 
 };
 
