@@ -3,7 +3,6 @@
 
 #include "motor.h"
 
-#define ZERO_SPEED 0
 #define FWD 1
 #define TRIGO 1
 

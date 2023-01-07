@@ -6,17 +6,18 @@
 #define MOTOR_H
 
 #include <Arduino.h>
+#define ZERO_SPEED 0
 
 
 class Motor 
 {
     public:
         Motor();
-        Motor(int pos_dir_pin,int neg_dir_pin);
+        Motor(int pos_dir_pin,int neg_dir_pin, int enable_pin);
         void command(float cmd_speed,bool dir);
         int _pos_dir_pin ;
         int _neg_dir_pin ;
-        
+        int _enable_pin ;
 };
 
 
