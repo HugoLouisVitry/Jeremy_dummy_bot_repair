@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include "motor.h"
 #include "diff_control.h"
+#include "sound_finder.h"
 
 int motorLeft_enable   = 7 ; // switch to no pwm pin when i have time to 
 int motorLeft_dir_pos  = 10;
@@ -19,13 +20,19 @@ Motor motor_Right(motorRight_dir_pos,motorRight_dir_neg,motorRight_enable);
 
 Controll controller(motor_Left,motor_Right);
 
+Metro test_refresh(500);
+sound_dist_sensor eyes(TRIGPIN,ECHOPIN,SERVO_PIN);
+
 void setup()
 {
     Serial.begin(9600);
+    eyes.init();
 }
 
 void loop()
 {
+    
+
     cmd = Serial.read();
     if(-1!=cmd)
     {

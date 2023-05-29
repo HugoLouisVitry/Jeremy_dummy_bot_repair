@@ -5,8 +5,8 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
-#include <Arduino.h>
-#define ZERO_SPEED 0
+#include "config.h"
+
 
 
 class Motor 
@@ -15,6 +15,7 @@ class Motor
         Motor();
         Motor(int pos_dir_pin,int neg_dir_pin, int enable_pin);
         void command(float cmd_speed,bool dir);
+    private:
         int _pos_dir_pin ;
         int _neg_dir_pin ;
         int _enable_pin ;

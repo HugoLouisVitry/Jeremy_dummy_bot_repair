@@ -1,10 +1,9 @@
 #ifndef DIFF_CONTROL_H
 #define DIFF_CONTROL_H
 
+#include "config.h"
 #include "motor.h"
 
-#define FWD 1
-#define TRIGO 1
 
 
 class Controll
